@@ -10,13 +10,25 @@ def main():
     output_path = "output/result_image.png"  # output path
     prompt = "on the clean table"  # if you don't specify prompt, it will be None
 
+    # parameters
+    target_size = (512, 512)  # output image size
+    scale = 0.3  # scale of the product image
+    position = None  # position of the product image
+    seed = 13  # random seed for generation
+    num_inference_steps = 20  # number of inference steps
+    controlnet_conditioning_scale = 1.0  # controlnet conditioning scale
+
     # execute
     result_image = generate_background_with_prompt_and_mask_or_combine(
         product_image_path=product_image_path,
         prompt=prompt,
         background_image_path=background_image_path,
-        scale=0.3,
-        position=None
+        seed=seed,
+        target_size=target_size,
+        scale=scale,
+        position=position,
+        num_inference_steps=num_inference_steps,
+        controlnet_conditioning_scale=controlnet_conditioning_scale
     )
 
     # output

@@ -51,7 +51,9 @@ def generate_background_with_prompt_and_mask_or_combine(
     seed=13,
     target_size=(512, 512),
     scale=1.0,
-    position=None
+    position=None,
+    num_inference_steps=20,
+    controlnet_conditioning_scale=1.0
 ):
     remover = Remover()
     foreground = process_foreground(product_image_path, remover)
@@ -71,9 +73,9 @@ def generate_background_with_prompt_and_mask_or_combine(
                 control_image=mask,
                 num_images_per_prompt=1,
                 generator=generator,
-                num_inference_steps=20,
+                num_inference_steps=num_inference_steps,
                 guess_mode=False,
-                controlnet_conditioning_scale=1.0,
+                controlnet_conditioning_scale=controlnet_conditioning_scale,
             ).images[0]
 
         return generated_background
