@@ -9,27 +9,35 @@ ProdDiffuserは、製品画像と背景画像を組み合わせて、プロン�
   - 背景画像がない場合、[Hugging Faceのyahoo-inc/photo-background-generationモデル](https://huggingface.co/yahoo-inc/photo-background-generation)を使用して、プロンプトに基づいた背景を生成し、製品画像と合成します。
 
 
-## 機能
+# 機能
 
 - 製品画像と背景画像の合成
 - プロンプトに基づく背景生成
 - 画像のリサイズとパディング
 
-## 必要条件
-
+# 必要条件
+- ローカルPython環境
 - Docker
 - NVIDIA GPU（オプション、GPUを使用する場合）
 
-## セットアップ
+# セットアップ
 
-### Dockerを使用する場合
+## ローカルで実行する場合
+GPUを使う場合は以下を参考にCUDAをインストールしてください。
+https://qiita.com/YokoPhys-h/items/274aecc84a7c42b1efb2
 
-1. **GPUを使う場合**
+```bash
+pip install -r requirements.txt
+python src/main.py
+```
 
+
+## Dockerを使用する場合
+GPUを使う場合
    以下を参考にしてください。
    https://qiita.com/YokoPhys-h/items/274aecc84a7c42b1efb2
 
-2. **Dockerイメージのビルド**
+1. **Dockerイメージのビルド**
 
    プロジェクトのルートディレクトリで以下のコマンドを実行してDockerイメージをビルドします。
 
@@ -37,7 +45,7 @@ ProdDiffuserは、製品画像と背景画像を組み合わせて、プロン�
    docker build -t prod_diffuser .
    ```
 
-3. **Dockerコンテナの実行**
+2. **Dockerコンテナの実行**
 
    GPUを使用する場合は以下のコマンドを実行します。
 
@@ -51,13 +59,13 @@ ProdDiffuserは、製品画像と背景画像を組み合わせて、プロン�
    docker run --rm -it prod_diffuser
    ```
 
-## 使用方法
+# ファイルについて
 
 1. `assets`ディレクトリに製品画像と背景画像を配置します。
 2. `src/main.py`内のパラメータを必要に応じて変更します。
 3. 上記の手順でDockerコンテナを実行し、生成された画像が`output`ディレクトリに保存されます。
 
-## パラメータの説明
+# パラメータの説明
 
 - `product_image_path`: 製品画像のパスを指定します。
 - `background_image_path`: 背景画像のパスを指定します。背景画像がない場合は、プロンプトに基づいて生成されます。
