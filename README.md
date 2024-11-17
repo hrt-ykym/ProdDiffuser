@@ -1,7 +1,6 @@
 # ProdDiffuser
 
 ProdDiffuserは、製品画像と背景画像を組み合わせて、プロンプトに基づいた背景生成を行うPythonアプリケーションです。
-背景生成には、https://huggingface.co/yahoo-inc/photo-background-generationを用いています。
 
 - **背景画像が用意されている場合**:
   - `assets`ディレクトリに背景画像を配置すると、製品画像と指定された背景画像が合成されます。
