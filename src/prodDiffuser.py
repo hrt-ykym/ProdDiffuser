@@ -55,17 +55,18 @@ def generate_background_with_prompt_and_mask_or_combine(
     num_inference_steps=20,
     controlnet_conditioning_scale=1.0
 ):
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     remover = Remover()
     foreground = process_foreground(product_image_path, remover)
 
     if prompt:
         model_id = "yahoo-inc/photo-background-generation"
         pipeline = DiffusionPipeline.from_pretrained(model_id, custom_pipeline=model_id)
-        pipeline = pipeline.to("cuda")
+        pipeline = pipeline.to(device)
 
         mask = ImageOps.invert(foreground.split()[-1])
-        generator = torch.Generator(device="cuda").manual_seed(seed)
-        with torch.autocast("cuda"):
+        generator = torch.Generator(device=device).manual_seed(seed)
+        with torch.autocast(device):
             generated_background = pipeline(
                 prompt=prompt,
                 image=foreground,

@@ -1,6 +1,11 @@
 import os
+import sys
 
-from prodDiffuser import generate_background_with_prompt_and_mask_or_combine
+# srcディレクトリをモジュール検索パスに追加
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from src.prodDiffuser import \
+    generate_background_with_prompt_and_mask_or_combine
 
 
 def main():
