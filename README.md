@@ -8,6 +8,9 @@ ProdDiffuserは、製品画像と背景画像を組み合わせて、プロン�
 - **背景画像が用意されていない場合**:
   - 背景画像がない場合、[Hugging Faceのyahoo-inc/photo-background-generationモデル](https://huggingface.co/yahoo-inc/photo-background-generation)を使用して、プロンプトに基づいた背景を生成し、製品画像と合成します。
 
+## メモ
+改善PRじゃんじゃんお待ちしてます！
+
 
 # 機能
 
