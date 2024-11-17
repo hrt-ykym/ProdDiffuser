@@ -1,6 +1,6 @@
 import os
 
-from generator import generate_background_with_prompt_and_mask_or_combine
+from prodDiffuser import generate_background_with_prompt_and_mask_or_combine
 
 # assets
 product_image_path = "assets/product_image.jpg"  # product image
