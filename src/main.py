@@ -13,7 +13,7 @@ def main():
     product_image_path = "assets/product_image.jpg"  # product image
     background_image_path = "assets/background_image.jpg"  # background image
     output_path = "output/result_image.png"  # output path
-    prompt = "on the clean table"  # if you don't specify prompt, it will be None
+    prompt = "on the beach"  # if you don't specify prompt, it will be None
 
     # parameters
     target_size = (512, 512)  # output image size
