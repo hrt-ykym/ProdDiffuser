@@ -11,6 +11,7 @@ ProdDiffuserは、製品画像と背景画像を組み合わせて、プロン�
 ## メモ
 改善PRじゃんじゃんお待ちしてます！
 
+https://github.com/user-attachments/assets/84728dc9-00d9-4aa0-80cc-075bb65576f5
 
 # 機能
 
